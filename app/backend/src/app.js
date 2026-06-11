@@ -22,4 +22,13 @@ app.get("/health", (req, res) => {
   });
 });
 
+app.get("/ready", (req, res) => {
+  res.status(200).json({
+    status: "ready",
+    service: APP_NAME,
+    version: APP_VERSION,
+    timestamp: new Date().toISOString()
+  });
+});
+
 module.exports = app;
